@@ -3,7 +3,6 @@ import imgRestaurant from "../images/restaurant.png";
 import imgStaff from "../images/staff.png";
 
 export default function homePage(contentElem) {
-  console.log("works");
   const homeContent = document.createElement("div");
   homeContent.classList.add("home-content");
 

@@ -1,5 +1,7 @@
 import clearElem from "./clear";
 import homePage from "./main-page";
+import menuPage from "./menu";
+import contactPage from "./contact";
 
 export function createHeader(contentElem) {
   const headerElem = document.createElement("div");
@@ -28,7 +30,14 @@ export function createHeader(contentElem) {
         }
       });
       btn.classList.add("active");
-      homePage(contentElem);
+
+      if (btn.textContent === "Home") {
+        homePage(contentElem);
+      } else if (btn.textContent === "Menu") {
+        menuPage(contentElem);
+      } else {
+        contactPage(contentElem);
+      }
     });
     headerElem.appendChild(btn);
   });
