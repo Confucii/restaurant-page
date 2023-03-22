@@ -14,9 +14,19 @@ export function createHeader(contentElem) {
   menuButton.textContent = "Menu";
   contactButton.textContent = "Contact";
 
-  headerElem.appendChild(homeButton);
-  headerElem.appendChild(menuButton);
-  headerElem.appendChild(contactButton);
+  const buttons = [homeButton, menuButton, contactButton];
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((_btn) => {
+        if (_btn.classList.contains("active")) {
+          _btn.classList.remove("active");
+        }
+      });
+      btn.classList.add("active");
+    });
+    headerElem.appendChild(btn);
+  });
 
   contentElem.before(headerElem);
 }
