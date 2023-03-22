@@ -45,13 +45,43 @@ export default function contactPage(contentElem) {
       "3",
       "^[A-Za-z]+(?:s+[A-Za-z]+)*$",
       "Your name",
-      "Name"
+      "Name*"
     )
   );
 
   contactForm.appendChild(
-    createInput("email", "email", true, "", "", "Your email", "Email")
+    createInput("tel", "phone", false, "", "", "Your phone", "Phone")
   );
+
+  contactForm.appendChild(
+    createInput("email", "email", true, "", "", "Your email", "Email*")
+  );
+
+  const inputDiv = document.createElement("div");
+  inputDiv.classList.add("input-div");
+
+  const textareaLabel = document.createElement("label");
+  textareaLabel.setAttribute("for", "message");
+  textareaLabel.textContent = "Write us a message!*";
+
+  const textArea = document.createElement("textarea");
+  textArea.setAttribute("id", "message");
+  textArea.setAttribute("name", "message");
+  textArea.setAttribute("rows", "10");
+  textArea.setAttribute("minlength", "20");
+  textArea.setAttribute("cols", "55");
+  textArea.required = true;
+
+  inputDiv.appendChild(textareaLabel);
+  inputDiv.appendChild(textArea);
+
+  contactForm.appendChild(inputDiv);
+
+  const submitBtn = document.createElement("input");
+  submitBtn.setAttribute("type", "submit");
+  submitBtn.setAttribute("value", "Send message");
+
+  contactForm.appendChild(submitBtn);
 
   contactDiv.appendChild(contactForm);
 
