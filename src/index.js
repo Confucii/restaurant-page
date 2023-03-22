@@ -1,4 +1,5 @@
 import "./style/style.css";
+import * as headerFooter from "./modules/header-footer";
 
 const bodySelector = document.querySelector("body");
 
@@ -7,4 +8,5 @@ contentDiv.setAttribute("id", "content");
 
 bodySelector.appendChild(contentDiv);
 
-contentDiv.setAttribute("class", "ui");
+headerFooter.createFooter(contentDiv);
+headerFooter.createHeader(contentDiv);
