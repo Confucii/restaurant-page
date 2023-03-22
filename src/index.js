@@ -6,3 +6,5 @@ const contentDiv = document.createElement("div");
 contentDiv.setAttribute("id", "content");
 
 bodySelector.appendChild(contentDiv);
+
+contentDiv.setAttribute("class", "ui");
