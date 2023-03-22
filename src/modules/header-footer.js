@@ -1,3 +1,6 @@
+import clearElem from "./clear";
+import homePage from "./main-page";
+
 export function createHeader(contentElem) {
   const headerElem = document.createElement("div");
   headerElem.setAttribute("class", "header");
@@ -18,12 +21,14 @@ export function createHeader(contentElem) {
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
+      clearElem(contentElem);
       buttons.forEach((_btn) => {
         if (_btn.classList.contains("active")) {
           _btn.classList.remove("active");
         }
       });
       btn.classList.add("active");
+      homePage(contentElem);
     });
     headerElem.appendChild(btn);
   });

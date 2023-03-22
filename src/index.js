@@ -1,5 +1,6 @@
 import "./style/style.css";
 import * as headerFooter from "./modules/header-footer";
+import homePage from "./modules/main-page";
 
 function Render() {
   const bodySelector = document.querySelector("body");
@@ -11,6 +12,7 @@ function Render() {
 
   headerFooter.createFooter(contentDiv);
   headerFooter.createHeader(contentDiv);
+  homePage(contentDiv);
 }
 
 Render();
