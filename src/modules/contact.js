@@ -1,3 +1,5 @@
+import pets from "../images/pets.png";
+
 const createInput = (
   type,
   name,
@@ -29,6 +31,12 @@ const createInput = (
   return inputDiv;
 };
 
+const headerAppend = (form, text) => {
+  const formRef = form;
+  formRef.appendChild(document.createElement("h1"));
+  formRef.lastChild.textContent = text;
+};
+
 export default function contactPage(contentElem) {
   const contactDiv = document.createElement("div");
   contactDiv.classList.add("contact-div");
@@ -43,7 +51,7 @@ export default function contactPage(contentElem) {
       "name",
       true,
       "3",
-      "^[A-Za-z]+(?:s+[A-Za-z]+)*$",
+      "^[a-zA-Z]+(?:[\\s-][a-zA-Z]+)*$",
       "Your name",
       "Name*"
     )
@@ -80,6 +88,18 @@ export default function contactPage(contentElem) {
   const submitBtn = document.createElement("input");
   submitBtn.setAttribute("type", "submit");
   submitBtn.setAttribute("value", "Send message");
+
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    while (contactForm.firstChild) {
+      contactForm.removeChild(contactForm.firstChild);
+    }
+    headerAppend(contactForm, "Thank you for reaching out!");
+    headerAppend(contactForm, "We will surely respond to you soon.");
+    headerAppend(contactForm, "Meanwhile meet our cute pets!");
+    contactForm.appendChild(document.createElement("img"));
+    contactForm.lastChild.setAttribute("src", pets);
+  });
 
   contactForm.appendChild(submitBtn);
 
